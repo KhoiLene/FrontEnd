@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FrontEnd OOP\\FrontEnd\\FrontEnd.csproj": {}
+    "d:\\FrontEnd OOP\\FrontEnd\\FrontEnd.csproj": {}
   },
   "projects": {
-    "D:\\FrontEnd OOP\\FrontEnd\\FrontEnd.csproj": {
+    "d:\\FrontEnd OOP\\FrontEnd\\FrontEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FrontEnd OOP\\FrontEnd\\FrontEnd.csproj",
+        "projectUniqueName": "d:\\FrontEnd OOP\\FrontEnd\\FrontEnd.csproj",
         "projectName": "FrontEnd",
-        "projectPath": "D:\\FrontEnd OOP\\FrontEnd\\FrontEnd.csproj",
+        "projectPath": "d:\\FrontEnd OOP\\FrontEnd\\FrontEnd.csproj",
         "packagesPath": "C:\\Users\\lengu\\.nuget\\packages\\",
-        "outputPath": "D:\\FrontEnd OOP\\FrontEnd\\obj\\",
+        "outputPath": "d:\\FrontEnd OOP\\FrontEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
