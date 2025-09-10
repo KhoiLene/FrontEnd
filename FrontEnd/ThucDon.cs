@@ -19,7 +19,7 @@ public class ThucDon
                 {
                     TenMon = parts[0].Trim(),
                     Gia = int.Parse(parts[1].Trim()),
-                    Nhom = parts[2].Trim()
+                    Nhom = parts[2].Trim(),
                 });
             }
         }

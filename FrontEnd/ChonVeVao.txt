@@ -1,4 +1,4 @@
-|199000|Buffet Base
-|299000|Buffet Pro
-|349000|Buffet Pro Max
-|0|Không dùng Buffet
+199000|Buffet Base
+299000|Buffet Pro
+349000|Buffet Pro Max
+0|Không dùng Buffet
