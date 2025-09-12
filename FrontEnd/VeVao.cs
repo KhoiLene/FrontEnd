@@ -1,36 +1,39 @@
-public class VeVao
+namespace FrontEnd
 {
-    public List<VeBuffet> DanhSachVe { get; private set; } = new List<VeBuffet>();
-
-    public List<VeBuffet> GetDanhSachVe()
+    public class VeVao
     {
-        return DanhSachVe;
-    }
+        public List<VeBuffet> DanhSachVe { get; private set; } = new List<VeBuffet>();
 
-    public void DocTuFile(string filePath)
-    {
-        if (!File.Exists(filePath))
+        public List<VeBuffet> GetDanhSachVe()
         {
-            Console.WriteLine("Không tìm thấy file vé vào.");
-            return;
+            return DanhSachVe;
         }
 
-        foreach (var line in File.ReadAllLines(filePath))
+        public void DocTuFile(string filePath)
         {
-            var parts = line.Split('|');
-            if (parts.Length == 2)
+            if (!File.Exists(filePath))
             {
-                DanhSachVe.Add(new VeBuffet
+                Console.WriteLine("Không tìm thấy file vé vào.");
+                return;
+            }
+
+            foreach (var line in File.ReadAllLines(filePath))
+            {
+                var parts = line.Split('|');
+                if (parts.Length == 2)
                 {
-                    GiaVe = int.Parse(parts[0].Trim()),
-                    KieuVe = parts[1].Trim(),
-                });
+                    DanhSachVe.Add(new VeBuffet
+                    {
+                        GiaVe = int.Parse(parts[0].Trim()),
+                        KieuVe = parts[1].Trim(),
+                    });
+                }
             }
         }
-    }
 
-    public List<string> LayDanhSachVe()
-    {
-        return DanhSachVe.Select(m => m.KieuVe).Distinct().ToList();
+        public List<string> LayDanhSachVe()
+        {
+            return DanhSachVe.Select(m => m.KieuVe).Distinct().ToList();
+        }
     }
 }

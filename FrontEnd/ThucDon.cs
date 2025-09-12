@@ -1,38 +1,41 @@
-public class ThucDon
+namespace FrontEnd
 {
-    public List<MonAn> DanhSachMon { get; private set; } = new List<MonAn>();
-
-    public void DocTuFile(string filePath)
+    public class ThucDon
     {
-        if (!File.Exists(filePath))
-        {
-            Console.WriteLine("Không tìm thấy file thực đơn.");
-            return;
-        }
+        public List<MonAn> DanhSachMon { get; private set; } = new List<MonAn>();
 
-        foreach (var line in File.ReadAllLines(filePath))
+        public void DocTuFile(string filePath)
         {
-            var parts = line.Split('|');
-            if (parts.Length == 3)
+            if (!File.Exists(filePath))
             {
-                DanhSachMon.Add(new MonAn
+                Console.WriteLine("Không tìm thấy file thực đơn.");
+                return;
+            }
+
+            foreach (var line in File.ReadAllLines(filePath))
+            {
+                var parts = line.Split('|');
+                if (parts.Length == 3)
                 {
-                    TenMon = parts[0].Trim(),
-                    Gia = int.Parse(parts[1].Trim()),
-                    Nhom = parts[2].Trim(),
-                });
+                    DanhSachMon.Add(new MonAn
+                    {
+                        TenMon = parts[0].Trim(),
+                        Gia = int.Parse(parts[1].Trim()),
+                        Nhom = parts[2].Trim(),
+                    });
+                }
             }
         }
-    }
 
-    public List<string> LayDanhSachNhom()
-    {
-        return DanhSachMon.Select(m => m.Nhom).Distinct().ToList();
-    }
+        public List<string> LayDanhSachNhom()
+        {
+            return DanhSachMon.Select(m => m.Nhom).Distinct().ToList();
+        }
 
-    public List<MonAn> LayMonTheoNhom(string nhom)
-    {
-        return DanhSachMon.Where(m => m.Nhom == nhom).ToList();
+        public List<MonAn> LayMonTheoNhom(string nhom)
+        {
+            return DanhSachMon.Where(m => m.Nhom == nhom).ToList();
+        }
     }
 }
 

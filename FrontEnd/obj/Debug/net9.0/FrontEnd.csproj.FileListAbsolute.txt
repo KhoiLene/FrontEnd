@@ -1,15 +1,30 @@
-D:\FrontEnd OOP\FrontEnd\bin\Debug\net9.0\FrontEnd.exe
-D:\FrontEnd OOP\FrontEnd\bin\Debug\net9.0\FrontEnd.deps.json
-D:\FrontEnd OOP\FrontEnd\bin\Debug\net9.0\FrontEnd.runtimeconfig.json
-D:\FrontEnd OOP\FrontEnd\bin\Debug\net9.0\FrontEnd.dll
-D:\FrontEnd OOP\FrontEnd\bin\Debug\net9.0\FrontEnd.pdb
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\FrontEnd.GeneratedMSBuildEditorConfig.editorconfig
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\FrontEnd.AssemblyInfoInputs.cache
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\FrontEnd.AssemblyInfo.cs
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\FrontEnd.csproj.CoreCompileInputs.cache
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\FrontEnd.sourcelink.json
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\FrontEnd.dll
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\refint\FrontEnd.dll
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\FrontEnd.pdb
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\FrontEnd.genruntimeconfig.cache
-D:\FrontEnd OOP\FrontEnd\obj\Debug\net9.0\ref\FrontEnd.dll
+D:/FrontEnd OOP/FrontEnd/bin/Debug/net9.0/FrontEnd.exe
+D:/FrontEnd OOP/FrontEnd/bin/Debug/net9.0/FrontEnd.deps.json
+D:/FrontEnd OOP/FrontEnd/bin/Debug/net9.0/FrontEnd.runtimeconfig.json
+D:/FrontEnd OOP/FrontEnd/bin/Debug/net9.0/FrontEnd.dll
+D:/FrontEnd OOP/FrontEnd/bin/Debug/net9.0/FrontEnd.pdb
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/FrontEnd.GeneratedMSBuildEditorConfig.editorconfig
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/FrontEnd.AssemblyInfoInputs.cache
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/FrontEnd.AssemblyInfo.cs
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/FrontEnd.csproj.CoreCompileInputs.cache
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/FrontEnd.sourcelink.json
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/FrontEnd.dll
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/refint/FrontEnd.dll
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/FrontEnd.pdb
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/FrontEnd.genruntimeconfig.cache
+D:/FrontEnd OOP/FrontEnd/obj/Debug/net9.0/ref/FrontEnd.dll
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/bin/Debug/net9.0/FrontEnd
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/bin/Debug/net9.0/FrontEnd.deps.json
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/bin/Debug/net9.0/FrontEnd.runtimeconfig.json
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/bin/Debug/net9.0/FrontEnd.dll
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/bin/Debug/net9.0/FrontEnd.pdb
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/FrontEnd.GeneratedMSBuildEditorConfig.editorconfig
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/FrontEnd.AssemblyInfoInputs.cache
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/FrontEnd.AssemblyInfo.cs
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/FrontEnd.csproj.CoreCompileInputs.cache
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/FrontEnd.sourcelink.json
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/FrontEnd.dll
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/refint/FrontEnd.dll
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/FrontEnd.pdb
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/FrontEnd.genruntimeconfig.cache
+/Users/khoile/Documents/GitHub/FrontEnd/FrontEnd/obj/Debug/net9.0/ref/FrontEnd.dll

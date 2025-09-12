@@ -1,6 +1,9 @@
-public class VeBuffet
+namespace FrontEnd
 {
-    public int GiaVe { get; set; }
-    public string? KieuVe { get; set; }
-    public int SoLuongVe { get; set; } = 1;
+    public class VeBuffet
+    {
+        public int GiaVe { get; set; }
+        public string? KieuVe { get; set; }
+        public int SoLuongVe { get; set; } = 1;
+    }
 }
