@@ -20,12 +20,13 @@ namespace FrontEnd
 
                 while (true)
                 {
-                    Console.WriteLine("\n Nhập thông tin khách hàng (nhập 'xong' để chọn vé vào): ");
+                    Console.WriteLine("\n Nhập thông tin khách hàng (nhập 'bắt đầu' để nhập khách hàng hoặc enter để chọn vé vào): ");
+                    string en = Console.ReadLine()?.Trim().ToLower();
+                    if (en != "bắt đầu") break;
                     Console.Write("Tên khách hàng: ");
                     string ten = Console.ReadLine()?.Trim().ToLower();
-                    if (ten == "xong") break;
                     dem++;
-                    string ma = $"HCMUTE{DateTime.Now:yyyyMMddHHmmss}{dem}";
+                    string ma = $"HCMUTE{DateTime.Now:yyyy:MM:dd:HH:mm:ss:}{dem}";
 
 
                     Console.Write("Giới tính: ");
@@ -46,13 +47,13 @@ namespace FrontEnd
 
                         Console.WriteLine("Số điện thoại không hợp lệ, vui lòng nhập lại!");
                     }
-                    Console.WriteLine("So nha: ");
+                    Console.WriteLine("Số nhà: ");
                     string soNha = Console.ReadLine();
-                    Console.WriteLine("Ten duong: ");
+                    Console.WriteLine("Tên đường: ");
                     string tenDuong = Console.ReadLine();
-                    Console.WriteLine("Ten quan: ");
+                    Console.WriteLine("Tên quận: ");
                     string tenQuan = Console.ReadLine();
-                    Console.WriteLine("Thanh pho: ");
+                    Console.WriteLine("Thành phố: ");
                     string thanhPho = Console.ReadLine();
                     DiaChi dc = new DiaChi(soNha, tenDuong, tenQuan, thanhPho);
                     KhachHang kh = new KhachHang
@@ -67,7 +68,7 @@ namespace FrontEnd
                     danhSachKhach.Add(kh);
                     dem++;
 
-                    Console.WriteLine($"\n Đã thêm khách hàng thứ {dem}!");
+                    Console.WriteLine($"\n Đã thêm khách hàng thứ {dem-1}!");
                 }
 
 
@@ -126,6 +127,67 @@ namespace FrontEnd
                         SoLuongVe = soLuongVe
                     });
                 }
+
+
+                ChonNuocLau chonNuocLau = new ChonNuocLau();
+                chonNuocLau.DocTuFile("NuocLau.txt");
+
+                var nuocLau = chonNuocLau.LayDanhSachNuocLau();
+                if (nuocLau.Count == 0)
+                {
+                    Console.WriteLine("Không có loại nước lẩu nào.");
+                    return;
+                }
+                List<NuocLau> hoaDonNuocLau = new List<NuocLau>();
+                while (true)
+                {
+                    Console.WriteLine("Các loại nước lẩu:");
+                    for (int i = 0; i < nuocLau.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {nuocLau[i]}");
+                    }
+
+                    Console.Write("Nhập số nước lẩu muốn chọn (hoặc gõ 'xong' để kết thúc): ");
+                    string nhapLau = Console.ReadLine()?.Trim().ToLower();
+                    if (nhapLau == "xong") break;
+
+                    if (!int.TryParse(nhapLau, out int lauIndex) || lauIndex < 1 || lauIndex > nuocLau.Count)
+                    {
+                        Console.WriteLine("Số loại vé không hợp lệ.");
+                        continue;
+                    }
+
+                    string kieuNuocLau = nuocLau[lauIndex - 1];
+                    var danhSachNuocLauTheoLoai = chonNuocLau.DanhSachNuocLau.FindAll(v => v.TenNuocLau.Equals(kieuNuocLau));
+
+                    if (danhSachNuocLauTheoLoai.Count == 0)
+                    {
+                        Console.WriteLine("Không tìm thấy vé phù hợp.");
+                        continue;
+                    }
+
+                    var lauChon = danhSachNuocLauTheoLoai[0]; // lấy mẫu vé để lấy giá
+
+                    Console.Write("Nhập số lượng nước lẩu muốn mua: ");
+                    string nhapSoLuong = Console.ReadLine()?.Trim();
+                    if (!int.TryParse(nhapSoLuong, out int soLuongNuocLau) || soLuongNuocLau < 1)
+                    {
+                        Console.WriteLine("Số lượng không hợp lệ. Mặc định là 1.");
+                        soLuongNuocLau = 1;
+                    }
+
+                    hoaDonNuocLau.Add(new NuocLau
+                    {
+                        TenNuocLau = lauChon.TenNuocLau,
+                        Gia = lauChon.Gia,
+                        SoLuongNuocLau = soLuongNuocLau
+                    });
+                }
+
+
+
+
+
 
                 ThucDon thucDon = new ThucDon();
                 thucDon.DocTuFile("data.txt");
@@ -219,7 +281,8 @@ namespace FrontEnd
 
                     Console.WriteLine("\nNhập lệnh:");
                     Console.WriteLine("1 - vé vào");
-                    Console.WriteLine("2 - thực đơn");
+                    Console.WriteLine("2 - nuớc lẩu");
+                    Console.WriteLine("3 - thực đơn");
                     Console.WriteLine("xong - Xuất hóa đơn");
                     string lenh = Console.ReadLine()?.Trim().ToLower();
 
@@ -267,7 +330,49 @@ namespace FrontEnd
                             if (ve.SoLuongVe <= 0) hoaDonVeVao.Remove(ve);
                         }
                     }
-                    else if (lenh == "2") // sửa giỏ món ăn
+                    else if (lenh == "2") // sửa giỏ nước lẩu
+                    {
+                        Console.WriteLine("Các nước lẩu trong giỏ:");
+                        for (int i = 0; i < hoaDonNuocLau.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1}. {hoaDonNuocLau[i].TenNuocLau} x{hoaDonNuocLau[i].SoLuongNuocLau}");
+                        }
+
+                        Console.Write("Chọn số thứ tự nước lẩu muốn sửa: ");
+                        string chonVe = Console.ReadLine()?.Trim();
+                        if (!int.TryParse(chonVe, out int veIndex) || veIndex < 1 || veIndex > hoaDonNuocLau.Count)
+                        {
+                            Console.WriteLine("Không hợp lệ.");
+                            continue;
+                        }
+
+                        var ve = hoaDonNuocLau[veIndex - 1];
+
+                        Console.WriteLine("Nhập 'giảm', 'tăng' hoặc 'xoá': ");
+                        string thaoTac = Console.ReadLine()?.Trim().ToLower();
+
+                        if (thaoTac == "xoá")
+                        {
+                            hoaDonNuocLau.Remove(ve);
+                            Console.WriteLine("Đã xóa nước lẩu.");
+                            continue;
+                        }
+
+                        Console.Write("Nhập số lượng: ");
+                        if (!int.TryParse(Console.ReadLine(), out int sl) || sl < 1)
+                        {
+                            Console.WriteLine("Số lượng không hợp lệ.");
+                            continue;
+                        }
+
+                        if (thaoTac == "tăng") ve.SoLuongNuocLau += sl;
+                        if (thaoTac == "giảm")
+                        {
+                            ve.SoLuongNuocLau -= sl;
+                            if (ve.SoLuongNuocLau <= 0) hoaDonNuocLau.Remove(ve);
+                        }
+                    }
+                    else if (lenh == "3") // sửa giỏ món ăn
                     {
                         if (hoaDonMonAn.Count == 0)
                         {
@@ -320,6 +425,7 @@ namespace FrontEnd
                 {
                     KhachHang = danhSachKhach,
                     VeVao = hoaDonVeVao,
+                    ChonNuocLau= hoaDonNuocLau,
                     MonAn = hoaDonMonAn,
                     ThoiGian = DateTime.Now
                 };
@@ -337,6 +443,11 @@ namespace FrontEnd
                     foreach (var ve in hd.VeVao)
                     {
                         Console.WriteLine($"Vé {ve.KieuVe} x{ve.SoLuongVe} - {ve.GiaVe:N0} VND");
+                    }
+
+                    foreach (var nl in hd.ChonNuocLau)
+                    {
+                        Console.WriteLine($"Nước lẩu {nl.TenNuocLau} x{nl.SoLuongNuocLau} - {nl.Gia:N0} VND");
                     }
 
                     foreach (var mon in hd.MonAn)
@@ -363,7 +474,10 @@ namespace FrontEnd
                     {
                         Console.WriteLine($"Vé {ve.KieuVe} x{ve.SoLuongVe} - {ve.GiaVe:N0} VND");
                     }
-
+                    foreach (var nl in hd.ChonNuocLau)
+                    {
+                        Console.WriteLine($"Nước lẩu {nl.TenNuocLau} x{nl.SoLuongNuocLau} - {nl.Gia:N0} VND");
+                    }
                     foreach (var mon in hd.MonAn)
                     {
                         Console.WriteLine($"{mon.TenMon} ({mon.Nhom}) x{mon.SoLuongMon} - {mon.Gia:N0} VND");
